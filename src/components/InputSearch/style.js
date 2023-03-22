@@ -25,7 +25,7 @@ export const Container = styled.section `
         padding: 1.2rem 1.2rem .4rem;
         border-radius: .4rem;
         font-size: 2.0rem;
-        color: gray;
+        color: white;
     }
     
     #inputSearchCharacter:focus {
