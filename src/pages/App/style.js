@@ -15,6 +15,7 @@ export const Container = styled.section `
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.4rem;
+    margin-top: 1.6rem;
   }
 
   .characterCard {
