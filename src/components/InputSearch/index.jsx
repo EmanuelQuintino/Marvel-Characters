@@ -7,12 +7,12 @@ export function InputSearch() {
       <div className="inputSection">
         <form>
             <input
-                id="inputSearchStudent" 
+                id="inputSearchCharacter" 
                 type="text"
                 placeholder=" " 
                 // onChange={(event) => setSearchStudent(event.target.value)}
             />
-            <label htmlFor="inputSearchStudent" className="labelInputSearch">Buscar aluno</label>
+            <label htmlFor="inputSearchCharacter" className="labelInputSearch">Search Character</label>
             <BsSearch className="searchIcon"/>
         </form>
       </div>

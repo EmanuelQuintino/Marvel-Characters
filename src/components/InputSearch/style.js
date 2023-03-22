@@ -1,63 +1,51 @@
 import styled from "styled-components";
 
 export const Container = styled.section `
-     .titleSearch {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .inputSection {
         position: relative;
+        max-width: 36.0rem;
+        margin: 0 auto;
     }
 
     .labelInputSearch {
         position: absolute;
-        bottom: .2rem;
+        bottom: .6rem;
         left: .8rem;
         pointer-events: none;
         transition: 400ms;
         padding: 0 .4rem;
         color: lightgray;
-        font-size: 1.6rem;
-    }
-
-    .srOnly {
-        position: absolute;
-        width: 0.1rem;
-        height: 0.1rem;
-        overflow: hidden;
-        color: transparent;
+        font-size: 2.0rem;
     }
     
-    #inputSearchStudent {
+    #inputSearchCharacter {
         width: 100%;
         background: none;
-        border: .1rem solid lightgray;
-        padding: .4rem 1.2rem .2rem;
+        border: .15rem solid lightgray;
+        padding: 1.2rem 1.2rem .4rem;
         border-radius: .4rem;
-        font-size: 1.6rem;
+        font-size: 2.0rem;
         color: gray;
     }
     
-    #inputSearchStudent:focus {
-        outline: .1rem solid orange;
-        border: .1rem solid orange;
+    #inputSearchCharacter:focus {
+        outline: .15rem solid orange;
+        border: .15rem solid orange;
     }
     
-    #inputSearchStudent:not(:placeholder-shown) + .labelInputSearch,
-    #inputSearchStudent:focus + .labelInputSearch {
-        bottom: 2.2rem;
-        font-size: 1.2rem;
+    #inputSearchCharacter:not(:placeholder-shown) + .labelInputSearch,
+    #inputSearchCharacter:focus + .labelInputSearch {
+        bottom: 3.4rem;
+        font-size: 1.4rem;
         background: white;
         color: gray;
     }
 
     .searchIcon {
         position: absolute;
-        bottom: .8rem;
-        right: 1.2rem;
-        font-size: 1.6rem;
+        bottom: 1.0rem;
+        right: -.2rem;
+        font-size: 2.0rem;
         color: lightgray;
     }
 `;

@@ -6,7 +6,8 @@ export const Container = styled.section `
   }
   
   h1 {
-    font-size: 1.6rem;
+    font-size: 3.2rem;
+    text-align: center;
   }
 
   .characterCards {
