@@ -25,17 +25,19 @@ export function App() {
   return (
     <Container>
       <h1>Home</h1>
-      { characters && 
-        characters.map((character, index) => {
-          return (
-            <div className="characterCard" key={index}>
-              <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt=""/>
-              <p>{character.name}</p>
-              <p>About</p>
-            </div>
-          )
-        })
-      }
+      <div className="characterCards">
+        { characters && 
+          characters.map((character, index) => {
+            return (
+              <div className="characterCard" key={index}>
+                <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt=""/>
+                <p>{character.name}</p>
+                <p>About</p>
+              </div>
+            )
+          })
+        }
+      </div>
     </Container>
   )
 }
