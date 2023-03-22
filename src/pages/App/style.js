@@ -13,6 +13,14 @@ export const Container = styled.section `
     text-align: center;
   }
 
+  .spinner {
+    animation: spinnerRotate 1s linear;
+    font-size: 7.2rem;
+    display: block;
+    margin: 10% auto 50%;
+    color: lightgray;
+  }
+
   .characterCards {
     display: flex;
     align-items: center;
@@ -73,5 +81,11 @@ export const Container = styled.section `
   .logoMarvelFooter {
     width: 100%;
     margin-top: 5.6rem;
+  }
+
+  @keyframes spinnerRotate {
+    to {
+        transform: rotate(360deg);
+    }
   }
 `; 
