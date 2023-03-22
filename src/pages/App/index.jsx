@@ -3,14 +3,27 @@ import axios from "axios"
 import { useQuery } from "react-query";
 import { InputSearch } from "../../components/InputSearch";
 import { ImSpinner2 } from "react-icons/im";
-
-const API = "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff"
+import { useState } from "react";
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 
 export function App() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limitPage, setLimitPage] = useState(20);
+  
+  const API = `https://gateway.marvel.com/v1/public/characters?limit=${limitPage}&offset=${currentPage}&ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`
+
+  function nextPage() {
+    setCurrentPage(currentPage + limitPage);
+  }
+  
+  function previousPage() {
+    setCurrentPage(currentPage - limitPage);
+  }
+  
   const {data, isLoading, error} = useQuery(
-    "characters", () => {
+    ["characters", limitPage, currentPage], () => {
     return (
-      axios.get(API)
+      axios.get(API, )
         .then((res) => res.data)
         .catch((error) => console.error(error))
       )
@@ -30,6 +43,11 @@ export function App() {
       <main>
         <h1>Marvel's Characters</h1>
         <InputSearch className="inputSearch"/>
+
+        <section className="navigatePage">
+          <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
+          <MdNavigateNext className="navigateIcon nextIcon" onClick={nextPage}/>
+        </section>
 
         {isLoading && 
           <p><ImSpinner2 className="spinner"/></p>  

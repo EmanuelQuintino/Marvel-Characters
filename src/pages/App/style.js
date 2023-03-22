@@ -13,6 +13,32 @@ export const Container = styled.section `
     text-align: center;
   }
 
+  .navigatePage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 72.0rem;
+    margin: 0 auto;
+  }
+
+  .navigateIcon {
+    color: gray;
+    font-size: 4.2rem;
+  }
+
+  .navigateIcon:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  .previousIcon {
+    animation: previousIconAnimation 1.5s infinite ease-in-out;
+  }
+
+  .nextIcon {
+    animation: nextIconAnimation 1.5s infinite ease-in-out;
+  }
+
   .spinner {
     animation: spinnerRotate 1s linear;
     font-size: 7.2rem;
@@ -86,6 +112,34 @@ export const Container = styled.section `
   @keyframes spinnerRotate {
     to {
         transform: rotate(360deg);
+    }
+  }
+
+  @keyframes previousIconAnimation {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(-0.4rem);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes nextIconAnimation {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(.4rem);
+    }
+
+    100% {
+      transform: translateX(0);
     }
   }
 `; 
