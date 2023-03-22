@@ -32,7 +32,7 @@ export function App() {
         <InputSearch className="inputSearch"/>
 
         {isLoading && 
-          <p className="loading"><ImSpinner2 className="spinner"/></p>  
+          <p><ImSpinner2 className="spinner"/></p>  
         }
 
         <div className="characterCards">

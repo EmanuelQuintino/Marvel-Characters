@@ -17,7 +17,7 @@ export const Container = styled.section `
     animation: spinnerRotate 1s linear;
     font-size: 7.2rem;
     display: block;
-    margin: 10% auto 50%;
+    margin: 10% auto 100%;
     color: lightgray;
   }
 
