@@ -37,8 +37,8 @@ export const Container = styled.section `
     #inputSearchCharacter:focus + .labelInputSearch {
         bottom: 3.4rem;
         font-size: 1.4rem;
-        background: white;
-        color: gray;
+        background: #252525;
+        color: white;
     }
 
     .searchIcon {

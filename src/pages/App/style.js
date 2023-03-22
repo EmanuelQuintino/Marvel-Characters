@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.section `
-  .logoMarvel {
+  background: #252525;
+  color: white;
+
+  .logoMarvelHeader {
     width: 100%;
   }
   
@@ -23,7 +26,7 @@ export const Container = styled.section `
     width: 24.0rem;
     height: 30.0rem;
     border-radius: .4rem;
-    box-shadow: .01rem .01rem .2rem .1rem black;
+    box-shadow: .01rem .01rem .2rem .1rem white;
 
     transition: 300ms;
   }
@@ -48,7 +51,7 @@ export const Container = styled.section `
     object-position: center;
 
     transition: brightness 300ms;
-    box-shadow: .01rem .01rem .2rem .1rem black;
+    box-shadow: .01rem .01rem .2rem .1rem white;
   }
 
   .part2 {
@@ -58,11 +61,17 @@ export const Container = styled.section `
 
   h3 {
     font-size: 1.6rem;
-    margin: 1.0rem 0 0;
+    padding: .4rem;
   }
 
   a {
     text-align: center;
-    color: red;
+    color: white;
+    text-decoration: none;
+  }
+
+  .logoMarvelFooter {
+    width: 100%;
+    margin-top: 5.6rem;
   }
 `; 

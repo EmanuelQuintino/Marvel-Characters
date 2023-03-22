@@ -13,4 +13,21 @@ export const ResetStyle = createGlobalStyle`
     font-size: 1.6rem;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  ::-webkit-scrollbar {
+    width: 1.0rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000A; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: .8rem;
+    background: #BBB; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #DDD;
+  }
 `;
