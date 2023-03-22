@@ -28,7 +28,7 @@ export function App() {
       <img src="https://m.media-amazon.com/images/S/abs-image-upload-na/6/AmazonStores/A1F83G8C2ARO7P/0742df6fb0bfa5eaf657483f504df0e2.w3000.h600.jpg" alt="" className="logoMarvel"/>
 
       <h1>Marvel's Characters</h1>
-      <InputSearch/>
+      <InputSearch className="inputSearch"/>
 
       <div className="characterCards">
         { characters && 

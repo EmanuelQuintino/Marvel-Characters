@@ -16,7 +16,7 @@ export const Container = styled.section `
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.4rem;
-    margin-top: 1.6rem;
+    margin-top: 3.2rem;
   }
 
   .characterCard {
@@ -30,6 +30,7 @@ export const Container = styled.section `
 
   .characterCard:hover {
     scale: 1.05;
+    cursor: pointer;
   }
 
   .characterCard .part1 {
