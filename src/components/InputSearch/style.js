@@ -43,9 +43,10 @@ export const Container = styled.section `
 
     .searchIcon {
         position: absolute;
-        bottom: 1.0rem;
-        right: -.2rem;
+        bottom: .4rem;
+        right: -1.6rem;
         font-size: 2.0rem;
         color: lightgray;
+        cursor: pointer;
     }
 `;

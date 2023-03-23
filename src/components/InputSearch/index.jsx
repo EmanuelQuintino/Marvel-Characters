@@ -1,11 +1,13 @@
 import { Container } from "./style"
 import { BsSearch } from "react-icons/bs";
+import { useState } from "react";
 
 export function InputSearch({setCharacterName}) {
+  const [name, setName] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    setCharacterName(event.target.name.value);
+    setCharacterName(name);
   }
 
   return (
@@ -16,10 +18,14 @@ export function InputSearch({setCharacterName}) {
                 id="inputSearchCharacter" 
                 type="text"
                 placeholder=" "
-                name="name" 
+                name="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)} 
             />
             <label htmlFor="inputSearchCharacter" className="labelInputSearch">Search Character</label>
-            <BsSearch className="searchIcon"/>
+            <button className="searchIcon">
+              <BsSearch onClick={handleSubmit}/>
+            </button>
         </form>
       </div>
     </Container>
