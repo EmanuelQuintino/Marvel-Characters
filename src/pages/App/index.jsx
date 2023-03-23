@@ -9,8 +9,24 @@ import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 export function App() {
   const [offsetPage, setOffsetPage] = useState(0);
   const [limitCharacterPage, setLimitCharacterPage] = useState(20);
+  const [characterName, setCharacterName] = useState("");
   
-  const API = `https://gateway.marvel.com/v1/public/characters?limit=${limitCharacterPage}&offset=${offsetPage}&ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`;
+  const API = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`;
+
+  const querySearchPages = `&limit=${limitCharacterPage}&offset=${offsetPage}`;
+  const querySearchCharacter = `&name=${characterName}`;
+
+  const {data, isLoading, error} = useQuery(
+    ["characters", limitCharacterPage, offsetPage], () => {
+    return (
+      axios.get(characterName ? API + querySearchCharacter : API + querySearchPages)
+        .then((res) => res.data)
+        .catch((error) => console.error(error))
+      )
+    }, {
+      retry: 5
+    }
+  );
 
   function nextPage(data) {
     if (data) {
@@ -22,20 +38,6 @@ export function App() {
     setOffsetPage(previousState => Math.max((previousState - limitCharacterPage), 0));
   }
   
-  const {data, isLoading, error} = useQuery(
-    ["characters", limitCharacterPage, offsetPage], () => {
-    return (
-      axios.get(API)
-        .then((res) => res.data)
-        .catch((error) => console.error(error))
-      )
-    }, {
-      retry: 5
-    }
-  );
- 
-  if (error) return <p>ALgo deu errado!</p>
-
   return (
     <Container className="element">     
       <header>
@@ -44,7 +46,9 @@ export function App() {
 
       <main>
         <h1>Marvel's Characters</h1>
-        <InputSearch className="inputSearch"/>
+        <InputSearch 
+          className="inputSearch"
+          setCharacterName={setCharacterName}/>
 
         <section className="navigatePage">
           <button>
@@ -55,9 +59,8 @@ export function App() {
           </button>
         </section>
 
-        {isLoading && 
-          <p><ImSpinner2 className="spinner"/></p>  
-        }
+        {error && <p>Algo deu errado!</p>}
+        {isLoading && <p><ImSpinner2 className="spinner"/></p>}
 
         <div className="characterCards">
           { data && 
