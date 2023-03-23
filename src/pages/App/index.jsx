@@ -39,7 +39,7 @@ export function App() {
   return (
     <Container className="element">     
       <header>
-        <img src="https://m.media-amazon.com/images/S/abs-image-upload-na/6/AmazonStores/A1F83G8C2ARO7P/0742df6fb0bfa5eaf657483f504df0e2.w3000.h600.jpg" alt="" className="logoMarvelHeader"/>
+        <img src="logo-mavel-header.jpg" alt="" className="logoMarvelHeader"/>
       </header>
 
       <main>
@@ -78,7 +78,7 @@ export function App() {
       </main>
 
       <footer>
-        <img src="https://cdn.shopify.com/s/files/1/0623/8683/1586/collections/27690-marvel-logo-wallpaper-picture_2000x.jpg?v=1642404009" alt="" className="logoMarvelFooter" />
+        <img src="logo-mavel-footer.jpg" alt="" className="logoMarvelFooter" />
       </footer>
     </Container>
   )
