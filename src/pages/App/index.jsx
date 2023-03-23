@@ -14,17 +14,17 @@ export function App() {
   const API = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`;
 
   const querySearchPages = `&limit=${limitCharacterPage}&offset=${offsetPage}`;
-  const querySearchCharacter = `&name=${characterName}`;
+  const querySearchCharacter = `&nameStartsWith=${characterName}`;
 
   const {data, isLoading, error} = useQuery(
-    ["characters", limitCharacterPage, offsetPage], () => {
+    ["characters", limitCharacterPage, offsetPage, characterName], () => {
     return (
       axios.get(characterName ? API + querySearchCharacter : API + querySearchPages)
         .then((res) => res.data)
         .catch((error) => console.error(error))
       )
     }, {
-      retry: 5
+      retry: 3
     }
   );
 
@@ -48,7 +48,8 @@ export function App() {
         <h1>Marvel's Characters</h1>
         <InputSearch 
           className="inputSearch"
-          setCharacterName={setCharacterName}/>
+          setCharacterName={setCharacterName}
+        />
 
         <section className="navigatePage">
           <button>

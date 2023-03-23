@@ -2,7 +2,7 @@ import { Container } from "./style"
 import { BsSearch } from "react-icons/bs";
 
 export function InputSearch({setCharacterName}) {
-  
+
   function handleSubmit(event) {
     event.preventDefault();
     setCharacterName(event.target.name.value);
