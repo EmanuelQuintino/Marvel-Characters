@@ -23,7 +23,7 @@ export function App() {
   const {data, isLoading, error} = useQuery(
     ["characters", limitCharacterPage, offsetPage, characterName], () => {
     return (
-      axios.get(characterName ? API + querySearchCharacter : API + querySearchPages)
+      axios.get(characterName ? API + querySearchPages + querySearchCharacter : API + querySearchPages)
         .then((res) => res.data)
         .catch((error) => console.error(error))
       )
@@ -57,7 +57,7 @@ export function App() {
 
         <section className="navigatePage">
           <button>
-            <MdNavigateBefore className="navigateIcon previousIcon" onClick={() => previousPage}/>
+            <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
           </button>
           <button>
             <MdNavigateNext className="navigateIcon nextIcon" onClick={() => nextPage(data)}/>
@@ -71,6 +71,7 @@ export function App() {
 
         <div className="characterCards">
           { data && 
+            data.data.results.length > 0 ? 
             data.data.results.map((character, index) => {
               return (
                 <a href="#" className="characterCard" key={index}>
@@ -86,7 +87,7 @@ export function App() {
                   </div>
                 </a>
               )
-            })
+            }) : <p className="characterNotFound">Character not found, please try again.</p>
           }
         </div>
       </main>
