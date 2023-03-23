@@ -7,23 +7,25 @@ import { useState } from "react";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [limitPage, setLimitPage] = useState(20);
+  const [offsetPage, setOffsetPage] = useState(0);
+  const [limitCharacterPage, setLimitCharacterPage] = useState(20);
   
-  const API = `https://gateway.marvel.com/v1/public/characters?limit=${limitPage}&offset=${currentPage}&ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`
+  const API = `https://gateway.marvel.com/v1/public/characters?limit=${limitCharacterPage}&offset=${offsetPage}&ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`;
 
-  function nextPage() {
-    setCurrentPage(currentPage + limitPage);
+  function nextPage(data) {
+    if (data) {
+      setOffsetPage(previousState => Math.min((previousState + limitCharacterPage), data.data.total - limitCharacterPage));
+    }
   }
   
   function previousPage() {
-    setCurrentPage(currentPage - limitPage);
+    setOffsetPage(previousState => Math.max((previousState - limitCharacterPage), 0));
   }
   
   const {data, isLoading, error} = useQuery(
-    ["characters", limitPage, currentPage], () => {
+    ["characters", limitCharacterPage, offsetPage], () => {
     return (
-      axios.get(API, )
+      axios.get(API)
         .then((res) => res.data)
         .catch((error) => console.error(error))
       )
@@ -45,8 +47,12 @@ export function App() {
         <InputSearch className="inputSearch"/>
 
         <section className="navigatePage">
-          <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
-          <MdNavigateNext className="navigateIcon nextIcon" onClick={nextPage}/>
+          <button>
+            <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
+          </button>
+          <button>
+            <MdNavigateNext className="navigateIcon nextIcon" onClick={() => nextPage(data)}/>
+          </button>
         </section>
 
         {isLoading && 

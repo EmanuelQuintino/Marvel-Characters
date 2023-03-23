@@ -21,6 +21,11 @@ export const Container = styled.section `
     margin: 0 auto;
   }
 
+  button {
+    background: none;
+    border: none;
+  }
+
   .navigateIcon {
     color: gray;
     font-size: 4.2rem;
