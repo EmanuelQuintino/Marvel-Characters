@@ -11,7 +11,11 @@ export function App() {
   const [limitCharacterPage, setLimitCharacterPage] = useState(20);
   const [characterName, setCharacterName] = useState("");
   
-  const API = `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8e7fb05ab6b828a15d90074ae8106e06&hash=203f8e9960ae6528a06db554ddafcbff`;
+  const ts = "1";
+  const apikey = "8e7fb05ab6b828a15d90074ae8106e06"
+  const hash = "203f8e9960ae6528a06db554ddafcbff"
+
+  const API = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}`;
 
   const querySearchPages = `&limit=${limitCharacterPage}&offset=${offsetPage}`;
   const querySearchCharacter = `&nameStartsWith=${characterName}`;
@@ -53,7 +57,7 @@ export function App() {
 
         <section className="navigatePage">
           <button>
-            <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
+            <MdNavigateBefore className="navigateIcon previousIcon" onClick={() => previousPage}/>
           </button>
           <button>
             <MdNavigateNext className="navigateIcon nextIcon" onClick={() => nextPage(data)}/>
@@ -63,13 +67,19 @@ export function App() {
         {error && <p>Algo deu errado!</p>}
         {isLoading && <p><ImSpinner2 className="spinner"/></p>}
 
+        {console.log(data)}
+
         <div className="characterCards">
           { data && 
             data.data.results.map((character, index) => {
               return (
                 <a href="#" className="characterCard" key={index}>
                   <div className="part1">
-                    <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt=""/>
+                    <img src={ 
+                      character.thumbnail.path.includes("image_not_available") ?
+                      "logo-marvel-not-image.png" : 
+                      `${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    />
                   </div>
                   <div className="part2">
                     <h3>{character.name}</h3>
