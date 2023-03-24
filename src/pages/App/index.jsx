@@ -10,6 +10,7 @@ export function App() {
   const [offsetPage, setOffsetPage] = useState(0);
   const [limitCharacterPage, setLimitCharacterPage] = useState(20);
   const [characterName, setCharacterName] = useState("");
+  const [totalCharacter, setTotalCharacter] = useState(0);
   
   const ts = "1";
   const apikey = "8e7fb05ab6b828a15d90074ae8106e06"
@@ -59,6 +60,9 @@ export function App() {
           <button>
             <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
           </button>
+
+          {data && <p>{offsetPage + 1} - {offsetPage + limitCharacterPage} / {data.data.total}</p>}
+          
           <button>
             <MdNavigateNext className="navigateIcon nextIcon" onClick={() => nextPage(data)}/>
           </button>

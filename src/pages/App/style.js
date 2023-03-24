@@ -18,7 +18,9 @@ export const Container = styled.section `
     align-items: center;
     justify-content: space-between;
     max-width: 72.0rem;
-    margin: 0 auto;
+    margin: 1.2rem auto;
+    color: gray;
+    font-size: 2.4rem;
   }
 
   button {
@@ -58,7 +60,7 @@ export const Container = styled.section `
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.4rem;
-    margin-top: 3.2rem;
+    margin-top: 1.2rem;
   }
 
   .characterCard {
