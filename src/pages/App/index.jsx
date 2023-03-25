@@ -50,11 +50,13 @@ export function App() {
       </header>
 
       <main>
-        <h1>Marvel's Characters</h1>
-        <InputSearch 
-          className="inputSearch"
-          setCharacterName={setCharacterName}
-        />
+        <section>
+          <h1>Marvel's Characters</h1>
+          <InputSearch
+            className="inputSearch" 
+            setCharacterName={setCharacterName}
+          />
+        </section>
 
         <section className="navigatePage">
           <button>

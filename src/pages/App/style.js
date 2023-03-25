@@ -7,11 +7,13 @@ export const Container = styled.section `
   .logoMarvelHeader {
     width: 100%;
   }
-  
+
   h1 {
     font-size: 3.2rem;
     text-align: center;
   }
+  
+  .inputSearch{}
 
   .navigatePage {
     display: flex;
@@ -50,7 +52,7 @@ export const Container = styled.section `
     animation: spinnerRotate 1s linear;
     font-size: 7.2rem;
     display: block;
-    margin: 10% auto 100%;
+    margin: 25% auto 100%;
     color: lightgray;
   }
 
