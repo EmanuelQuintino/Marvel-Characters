@@ -61,7 +61,12 @@ export function App() {
             <MdNavigateBefore className="navigateIcon previousIcon" onClick={previousPage}/>
           </button>
 
-          {data && <p>{offsetPage + 1} - {offsetPage + limitCharacterPage} / {data.data.total}</p>}
+          {data ? 
+            <p>
+              {offsetPage + 1} - {Math.min((offsetPage + limitCharacterPage), data.data.total)} of {data.data.total}
+            </p> : 
+            <p>Loading...</p>
+          }
           
           <button>
             <MdNavigateNext className="navigateIcon nextIcon" onClick={() => nextPage(data)}/>
