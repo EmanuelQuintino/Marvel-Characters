@@ -10,7 +10,6 @@ export function App() {
   const [offsetPage, setOffsetPage] = useState(0);
   const [limitCharacterPage, setLimitCharacterPage] = useState(20);
   const [characterName, setCharacterName] = useState("");
-  const [totalCharacter, setTotalCharacter] = useState(0);
   
   const ts = "1";
   const apikey = "8e7fb05ab6b828a15d90074ae8106e06"
@@ -55,6 +54,7 @@ export function App() {
           <InputSearch
             className="inputSearch" 
             setCharacterName={setCharacterName}
+            setOffsetPage={setOffsetPage}
           />
         </section>
 

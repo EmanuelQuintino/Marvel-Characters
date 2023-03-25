@@ -2,12 +2,13 @@ import { Container } from "./style"
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 
-export function InputSearch({setCharacterName}) {
+export function InputSearch({setCharacterName, setOffsetPage}) {
   const [name, setName] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     setCharacterName(name);
+    setOffsetPage(0);
   }
 
   return (
