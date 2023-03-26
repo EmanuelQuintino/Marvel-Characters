@@ -5,6 +5,8 @@ export const Container = styled.section `
         position: relative;
         max-width: 36.0rem;
         margin: 0 auto;
+        right: 1.25%;
+
     }
 
     .labelInputSearch {
@@ -48,5 +50,13 @@ export const Container = styled.section `
         font-size: 2.0rem;
         color: lightgray;
         cursor: pointer;
+    }
+
+    @media (max-width: 36.0rem) {
+        .inputSection {
+            max-width: 28.0rem;
+            margin: 0 auto;
+            right: 2.5%;
+        }
     }
 `;
