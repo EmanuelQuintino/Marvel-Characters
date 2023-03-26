@@ -33,7 +33,7 @@ export function App() {
   );
 
   function nextPage(data) {
-    if (data) {
+    if (data && data.data.total > limitCharacterPage) {
       setOffsetPage(previousState => Math.min((previousState + limitCharacterPage), data.data.total - limitCharacterPage));
     }
   }
