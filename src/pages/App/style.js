@@ -116,7 +116,9 @@ export const Container = styled.section `
   .characterNotFound {
     color: gray;
     font-size: 3.2rem;
-    margin: 10% auto 100%
+    margin: 10% auto 100%;
+    padding: 0 4.2rem;
+    text-align: center;
   }
 
   .logoMarvelFooter {
@@ -155,6 +157,12 @@ export const Container = styled.section `
 
     100% {
       transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 36.0rem) {
+    .characterNotFound {
+      font-size: 2.4rem;
     }
   }
 `; 

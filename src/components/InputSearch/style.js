@@ -6,7 +6,6 @@ export const Container = styled.section `
         max-width: 36.0rem;
         margin: 0 auto;
         right: 1.25%;
-
     }
 
     .labelInputSearch {

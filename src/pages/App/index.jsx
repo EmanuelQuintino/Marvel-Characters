@@ -65,7 +65,7 @@ export function App() {
 
           {data ? 
             <p>
-              {offsetPage + 1} - {Math.min((offsetPage + limitCharacterPage), data.data.total)} of {data.data.total}
+              {data.data.results.length > 0 ? offsetPage + 1 : 0} - {Math.min((offsetPage + limitCharacterPage), data.data.total)} of {data.data.total}
             </p> : 
             <p>Loading...</p>
           }
