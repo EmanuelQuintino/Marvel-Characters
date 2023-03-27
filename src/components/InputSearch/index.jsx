@@ -11,6 +11,7 @@ export function InputSearch({setCharacterName, setOffsetPage}) {
   function handleInput(event) {
     if (event.target.value == "") {
       setCharacterName(event.target.value)
+      setOffsetPage(0);
     }
   }
 
