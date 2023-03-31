@@ -49,7 +49,7 @@ export const Container = styled.section `
   }
 
   .spinner {
-    animation: spinnerRotate 1s linear;
+    animation: spinnerRotate 1s linear infinite;
     font-size: 7.2rem;
     display: block;
     margin: 25% auto 100%;
